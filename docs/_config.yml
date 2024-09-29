@@ -3,3 +3,7 @@ title: Web Apps Conception
 description: Site web officiel du projet Web Apps Conception
 plugins:
   - jekyll-target-blank
+
+target-blank:
+    css_class: ext-link
+
