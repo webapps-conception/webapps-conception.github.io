@@ -6,8 +6,4 @@ plugins:
 
 target-blank:
     css_class: ext-link
-    add_css_classes: css-class-one css-class-two
-    noopener: false
-    noreferrer: false
-    nofollow: false
 
