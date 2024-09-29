@@ -519,7 +519,7 @@ Press CTRL+C to quit
  * Debugger PIN: 105-130-942
 ```
 
-### GET the list
+### Obtenir la liste (GET)
 ``` bash
 $ curl http://localhost:5000/todos
 {
