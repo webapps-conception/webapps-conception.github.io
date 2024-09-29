@@ -1,18 +1,4 @@
 theme: jekyll-theme-leap-day
 title: Web Apps Conception
 description: Site web officiel du projet Web Apps Conception
-plugins:
-  - jekyll-target-blank
-
-target-blank:
-    css_class: ext-link
-
-target-blank:
-    add_css_classes: css-class-one css-class-two
-
-target-blank:
-   noopener: false
-
-target-blank:
-   noreferrer: false
 
