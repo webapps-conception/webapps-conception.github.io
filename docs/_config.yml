@@ -7,3 +7,12 @@ plugins:
 target-blank:
     css_class: ext-link
 
+target-blank:
+    add_css_classes: css-class-one css-class-two
+
+target-blank:
+   noopener: false
+
+target-blank:
+   noreferrer: false
+
