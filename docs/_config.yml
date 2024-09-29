@@ -9,5 +9,5 @@ target-blank:
     add_css_classes: css-class-one css-class-two
     noopener: false
     noreferrer: false
-    rel: nofollow
+    nofollow: false
 
