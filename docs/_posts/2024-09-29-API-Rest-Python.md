@@ -6,7 +6,7 @@ categories: rest
 # Comment développer une API Rest en Python ?
 ## Architecture REST
 
-![Architecture REST](/assets/images/architecture-rest.webp)
+![Architecture REST](/assets/images/architecture-rest.webp){:target="_blank"}
 
 REST (Representational State Transfer) ou RESTful est un style d’architecture permettant de construire des applications (Web, Intranet, Web Service). Il s’agit d’un ensemble de conventions et de bonnes pratiques à respecter et non d’une technologie à part entière. L’architecture REST utilise les spécifications originelles du protocole HTTP.
 
@@ -17,7 +17,7 @@ REST (Representational State Transfer) ou RESTful est un style d’architecture 
 - L'entête HEADER est utilisée comme jeton d'authentification (token).
 
 ## Flask-RESTful
-[Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html "Documentation Flask-RESTful") est une extension pour Flask qui ajoute la prise en charge de la création rapide d'API REST. Il s'agit d'une abstraction légère qui fonctionne avec vos ORM/bibliothèques existantes. Flask-RESTful encourage les meilleures pratiques avec une configuration minimale. Si vous connaissez Flask, Flask-RESTful devrait être facile à maîtriser.
+[Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html "Documentation Flask-RESTful"){:target="_blank"} est une extension pour Flask qui ajoute la prise en charge de la création rapide d'API REST. Il s'agit d'une abstraction légère qui fonctionne avec vos ORM/bibliothèques existantes. Flask-RESTful encourage les meilleures pratiques avec une configuration minimale. Si vous connaissez Flask, Flask-RESTful devrait être facile à maîtriser.
 
 ### Installation
 ``` bash
@@ -25,7 +25,7 @@ pip install flask-restful
 ```
 
 ### Exemple d'API
-Dans ce post, nous n'allons pas nous attarder sur la documentation technique du module [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html "Documentation Flask-RESTful"), mais plutôt aller à l'essentiel par un exemple.
+Dans ce post, nous n'allons pas nous attarder sur la documentation technique du module [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html "Documentation Flask-RESTful"){:target="_blank"}, mais plutôt aller à l'essentiel par un exemple.
 
 ``` python
 from flask import Flask
@@ -92,7 +92,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
->💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-restful-python-example).
+>💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-restful-python-example){:target="_blank"}.
 
 ### Démarrage du service
 ``` bash
@@ -234,7 +234,7 @@ $ curl http://localhost:5000/todos
 ## Flask-JWT-Extended
 Afin de sécuriser votre application Flask, il est nécessaire de comprendre le fonctionnement d'une authentification basic JWT (JSON Web Token), ce qui permet l'échange sécurisé de jetons entre le serveur et les clients. Cette sécurité de l’échange se traduit par la vérification de l'intégrité et de l'authenticité des données. Elle s’effectue par l'algorithme HMAC ou RSA.
 
-Le site [JWT.io](https://jwt.io/) permet de décoder, vérifier et générer JWT.
+Le site [JWT.io](https://jwt.io/){:target="_blank"} permet de décoder, vérifier et générer JWT.
 
 Flask-JWT-Extended ajoute non seulement la prise en charge de l'utilisation des jetons Web JSON (JWT) à Flask pour protéger les vues, mais également de nombreuses fonctionnalités utiles (et facultatives) intégrées pour faciliter l'utilisation des jetons Web JSON. Ceux-ci incluent :
 
@@ -253,7 +253,7 @@ pip install flask-jwt-extended
 ```
 
 ### Usage basic
-Dans ce post, nous n'allons pas nous attarder sur la documentation technique du module [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/ "Flask-JWT-Extended’s Documentation"), mais plutôt aller à l'essentiel par un exemple.
+Dans ce post, nous n'allons pas nous attarder sur la documentation technique du module [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/ "Flask-JWT-Extended’s Documentation"){:target="_blank"}, mais plutôt aller à l'essentiel par un exemple.
 
 ``` python
 from flask import Flask
@@ -299,7 +299,7 @@ if __name__ == "__main__":
     app.run()
 ```
 
->💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-jwt-extended-python-example).
+>💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-jwt-extended-python-example){:target="_blank"}.
 
 ### Démarrage du service
 ``` bash
@@ -504,7 +504,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 ```
 
->💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-restful-python-example).
+>💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-restful-python-example){:target="_blank"}.
 
 ### Démarrage du service
 ``` bash
