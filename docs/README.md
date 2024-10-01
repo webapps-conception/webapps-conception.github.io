@@ -1,4 +1,3 @@
-# Blog Web Apps Conception
 ## Présentation
 À l'origine, Web Apps Conception était une entreprise de développement de sites Internet et d'applications en Progressive Web App (PWA), née en 2022 d'une passion pour les nouvelles technologies.
 
