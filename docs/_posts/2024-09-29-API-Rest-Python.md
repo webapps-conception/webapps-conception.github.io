@@ -311,7 +311,7 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 ```
 
-## Test d'acccès à une route protégée
+#### Test d'acccès à une route protégée
 ``` bash
 $ curl http://localhost:5000/protected -v
 *   Trying ::1...
