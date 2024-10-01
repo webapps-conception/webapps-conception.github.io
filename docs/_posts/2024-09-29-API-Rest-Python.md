@@ -19,12 +19,12 @@ REST (Representational State Transfer) ou RESTful est un style d’architecture 
 ## Flask-RESTful
 [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html "Documentation Flask-RESTful"){:target="_blank"} est une extension pour Flask qui ajoute la prise en charge de la création rapide d'API REST. Il s'agit d'une abstraction légère qui fonctionne avec vos ORM/bibliothèques existantes. Flask-RESTful encourage les meilleures pratiques avec une configuration minimale. Si vous connaissez Flask, Flask-RESTful devrait être facile à maîtriser.
 
-### Installation
+#### Installation
 ``` bash
 pip install flask-restful
 ```
 
-### Exemple d'API
+#### Exemple d'API
 Dans ce post, nous n'allons pas nous attarder sur la documentation technique du module [Flask-RESTful](https://flask-restful.readthedocs.io/en/latest/index.html "Documentation Flask-RESTful"){:target="_blank"}, mais plutôt aller à l'essentiel par un exemple.
 
 ``` python
@@ -94,7 +94,7 @@ if __name__ == '__main__':
 
 >💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-restful-python-example){:target="_blank"}.
 
-### Démarrage du service
+#### Démarrage du service
 ``` bash
 $ python api.py
  * Serving Flask app 'api'
@@ -107,7 +107,7 @@ Press CTRL+C to quit
  * Debugger PIN: 105-130-942
 ```
 
-### Obtenir la liste (GET)
+#### Obtenir la liste (GET)
 ``` bash
 $ curl http://localhost:5000/todos
 {
@@ -123,7 +123,7 @@ $ curl http://localhost:5000/todos
 }
 ```
 
-### Obtenir une seule tâche (GET)
+#### Obtenir une seule tâche (GET)
 ``` bash
 $ curl http://localhost:5000/todos/todo3
 {
@@ -131,7 +131,7 @@ $ curl http://localhost:5000/todos/todo3
 }
 ```
 
-### Suppression d'une tâche (DELETE)
+#### Suppression d'une tâche (DELETE)
 ``` bash
 $ curl http://localhost:5000/todos/todo2 -X DELETE -v
 *   Trying ::1...
@@ -154,7 +154,7 @@ $ curl http://localhost:5000/todos/todo2 -X DELETE -v
 * Closing connection 0
 ```
 
-### Ajout d'une nouvelle tâche
+#### Ajout d'une nouvelle tâche
 ``` bash
 $ curl http://localhost:5000/todos -d '{ "task":"something new" }' -X POST -H "Content-Type: application/json" -v
 Note: Unnecessary use of -X or --request, POST is already inferred.
@@ -185,7 +185,7 @@ Note: Unnecessary use of -X or --request, POST is already inferred.
 * Closing connection 0
 ```
 
-### Mise à jour d'une tâche (PUT)
+#### Mise à jour d'une tâche (PUT)
 ``` bash
 $ curl http://localhost:5000/todos/todo3 -d '{ "task":"something different" }' -X PUT -H "Content-Type: application/json" -v
 *   Trying ::1...
@@ -215,7 +215,7 @@ $ curl http://localhost:5000/todos/todo3 -d '{ "task":"something different" }' -
 * Closing connection 0
 ```
 
-### Affichage du résultat
+#### Affichage du résultat
 ``` bash
 $ curl http://localhost:5000/todos
 {
@@ -246,13 +246,13 @@ Flask-JWT-Extended ajoute non seulement la prise en charge de l'utilisation des 
 - Révocation/mise sur liste noire de jetons
 - Stockage des jetons dans les cookies et protection CSRF
 
-### Installation
+#### Installation
 
 ``` bash
 pip install flask-jwt-extended
 ```
 
-### Usage basic
+#### Usage basic
 Dans ce post, nous n'allons pas nous attarder sur la documentation technique du module [Flask-JWT-Extended](https://flask-jwt-extended.readthedocs.io/en/stable/ "Flask-JWT-Extended’s Documentation"){:target="_blank"}, mais plutôt aller à l'essentiel par un exemple.
 
 ``` python
@@ -301,7 +301,7 @@ if __name__ == "__main__":
 
 >💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-jwt-extended-python-example){:target="_blank"}.
 
-### Démarrage du service
+#### Démarrage du service
 ``` bash
 $ python api.py
  * Serving Flask app 'api'
@@ -506,7 +506,7 @@ if __name__ == '__main__':
 
 >💡 Le code de cet exemple est disponible sur [Github](https://github.com/webapps-conception/flask-restful-python-example){:target="_blank"}.
 
-### Démarrage du service
+#### Démarrage du service
 ``` bash
 $ python api-jwt.py
  * Serving Flask app 'api-jwt'
@@ -519,7 +519,7 @@ Press CTRL+C to quit
  * Debugger PIN: 105-130-942
 ```
 
-### Obtenir la liste (GET)
+#### Obtenir la liste (GET)
 ``` bash
 $ curl http://localhost:5000/todos
 {
