@@ -11,4 +11,4 @@ Comme ma passion pour le développement est plus forte que jamais, j'ai décidé
 
 # Articles du blog
 
-  - Post [Comment développer une API Rest en Python ?](/2024/09/29/API-Rest-Python.html)
+  - Post [Comment développer une API Rest en Python ?](/2024/09/29/API-Rest-en-Python.html)
