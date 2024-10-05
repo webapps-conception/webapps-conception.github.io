@@ -10,4 +10,3 @@ show_downloads: false
 google_analytics: G-JYQX8B02PN
 plugins:
   - jekyll-sitemap
-  - _plugins/tag_generator.rb
