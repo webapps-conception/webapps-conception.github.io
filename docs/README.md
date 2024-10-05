@@ -11,4 +11,5 @@ Comme ma passion pour le développement est plus forte que jamais, j'ai décidé
 
 # Articles du blog
 
+  - Post [Développer une application Flask en Python](/2024/10/04/Application-Flask-en-Python.html)
   - Post [Comment développer une API Rest en Python ?](/2024/09/29/API-Rest-en-Python.html)

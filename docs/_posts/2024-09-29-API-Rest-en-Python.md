@@ -1,12 +1,12 @@
 layout: post
 title: "Comment développer une API Rest en Python ?"
 date: 2024-09-28 12:30:00 +0002
-categories: rest
+categories: Python Flask
 
 # Comment développer une API Rest en Python ?
 ## Architecture REST
 
-![Architecture REST](/assets/images/architecture-rest.webp){:target="_blank"}
+![Architecture REST](/assets/images/architecture-rest.webp)
 
 REST (Representational State Transfer) ou RESTful est un style d’architecture permettant de construire des applications (Web, Intranet, Web Service). Il s’agit d’un ensemble de conventions et de bonnes pratiques à respecter et non d’une technologie à part entière. L’architecture REST utilise les spécifications originelles du protocole HTTP.
 
