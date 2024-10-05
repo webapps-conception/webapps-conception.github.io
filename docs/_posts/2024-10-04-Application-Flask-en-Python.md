@@ -1,7 +1,9 @@
 layout: post
+robots: index,follow
+published: true
 title: "Développer une application Flask en Python"
 date: 2024-10-04 21:30:00 +0002
-categories: Python Flask
+tags: [Python, Flask]
 
 # Développer une application Flask en Python
 
@@ -293,11 +295,11 @@ Voici un exemple de modèle :
 ``` jinja
 <!doctype html>
 <title>Hello from Flask</title>
-{_%_ if name _%_}
+{ % if name % }
   <h1>Hello {{ name }}!</h1>
-{_%_ else _%_}
+{ % else % }
   <h1>Hello, World!</h1>
-{_%_ endif _%_}
+{ % endif % }
 ```
 
 À l’intérieur des modèles, vous avez également accès aux objets `config`, `request`, `session` et `g` [^1] ainsi qu’aux fonctions `url_for()` et `get_flashed_messages()`.
@@ -1198,7 +1200,7 @@ Les modèles sont des fichiers qui contiennent des données statiques ainsi que 
 
 Dans votre application, vous utiliserez des modèles pour rendre le HTML qui s’affichera dans le navigateur de l’utilisateur. Dans Flask, Jinja est configuré pour auto-échapper toutes les données qui sont rendues dans les modèles HTML. Cela signifie que le rendu de la saisie de l’utilisateur est sûr ; tous les caractères qu’il a entrés et qui pourraient perturber le HTML, tels que `<` et `>`, seront échappés avec des valeurs sûres qui auront le même aspect dans le navigateur mais ne provoqueront pas d’effets indésirables.
 
-Jinja se présente et se comporte essentiellement comme Python. Des délimiteurs spéciaux sont utilisés pour distinguer la syntaxe Jinja des données statiques du modèle. Tout ce qui se trouve entre `{{` et `}}` est une expression qui sera affichée dans le document final. `{_%_` et `_%_}` dénote une instruction de flux de contrôle comme if et for. Contrairement à Python, les blocs sont désignés par des balises de début et de fin plutôt que par une indentation, car le texte statique à l’intérieur d’un bloc peut modifier l’indentation.
+Jinja se présente et se comporte essentiellement comme Python. Des délimiteurs spéciaux sont utilisés pour distinguer la syntaxe Jinja des données statiques du modèle. Tout ce qui se trouve entre `{{` et `}}` est une expression qui sera affichée dans le document final. `{ %` et `% }` dénote une instruction de flux de contrôle comme if et for. Contrairement à Python, les blocs sont désignés par des balises de début et de fin plutôt que par une indentation, car le texte statique à l’intérieur d’un bloc peut modifier l’indentation.
 
 ##### La disposition de la base
 
@@ -1207,28 +1209,28 @@ Chaque page de l’application aura la même mise en page de base autour d’un 
 flaskr/templates/base.html :
 ``` jinja
 <!doctype html>
-<title>{_%_ block title _%_}{_%_ endblock _%_} - Flaskr</title>
+<title>{ % block title % }{ % endblock % } - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
   <h1>Flaskr</h1>
   <ul>
-    {_%_ if g.user _%_}
+    { % if g.user % }
       <li><span>{{ g.user['username'] }}</span>
       <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {_%_ else _%_}
+    { % else % }
       <li><a href="{{ url_for('auth.register') }}">Register</a>
       <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    {_%_ endif _%_}
+    { % endif % }
   </ul>
 </nav>
 <section class="content">
   <header>
-    {_%_ block header _%_}{_%_ endblock _%_}
+    { % block header % }{ % endblock % }
   </header>
-  {_%_ for message in get_flashed_messages() _%_}
+  { % for message in get_flashed_messages() % }
     <div class="flash">{{ message }}</div>
-  {_%_ endfor _%_}
-  {_%_ block content _%_}{_%_ endblock _%_}
+  { % endfor % }
+  { % block content % }{ % endblock % }
 </section>
 ```
 
@@ -1238,9 +1240,9 @@ Après le titre de la page, et avant le contenu, le modèle boucle sur chaque me
 
 Il y a trois blocs définis ici qui seront remplacés dans les autres modèles :
 
-1. `{_%_ block title _%_}` modifiera le titre affiché dans l’onglet et le titre de la fenêtre du navigateur.
-2. `{_%_ block header _%_}` est similaire à title mais changera le titre affiché sur la page.
-3. `{_%_ block content _%_}` est l’endroit où va le contenu de chaque page, comme le formulaire de connexion ou un article de blog.
+1. `{ % block title % }` modifiera le titre affiché dans l’onglet et le titre de la fenêtre du navigateur.
+2. `{ % block header % }` est similaire à title mais changera le titre affiché sur la page.
+3. `{ % block content % }` est l’endroit où va le contenu de chaque page, comme le formulaire de connexion ou un article de blog.
 
 Le modèle de base se trouve directement dans le répertoire `templates`. Pour garder les autres organisés, les modèles pour un blueprint seront placés dans un répertoire avec le même nom que le *blueprint*.
 
@@ -1248,13 +1250,13 @@ Le modèle de base se trouve directement dans le répertoire `templates`. Pour g
 
 flaskr/templates/auth/register.html :
 ``` jinja
-{_%_ extends 'base.html' _%_}
+{ % extends 'base.html' % }
 
-{_%_ block header _%_}
-  <h1>{_%_ block title _%_}Register{_%_ endblock _%_}</h1>
-{_%_ endblock _%_}
+{ % block header % }
+  <h1>{ % block title % }Register{ % endblock % }</h1>
+{ % endblock % }
 
-{_%_ block content _%_}
+{ % block content % }
   <form method="post">
     <label for="username">Username</label>
     <input name="username" id="username" required>
@@ -1262,12 +1264,12 @@ flaskr/templates/auth/register.html :
     <input type="password" name="password" id="password" required>
     <input type="submit" value="Register">
   </form>
-{_%_ endblock _%_}
+{ % endblock % }
 ```
 
-`{_%_ extends 'base.html' _%_}` indique à Jinja que ce modèle doit remplacer les blocs du modèle de base. Tout le contenu rendu doit apparaître à l’intérieur des balises `{_%_ block _%_}` qui remplacent les blocs du modèle de base.
+`{ % extends 'base.html' % }` indique à Jinja que ce modèle doit remplacer les blocs du modèle de base. Tout le contenu rendu doit apparaître à l’intérieur des balises `{ % block % }` qui remplacent les blocs du modèle de base.
 
-Un modèle utile utilisé ici consiste à placer `{_%_ block title _%_}` à l’intérieur de `{_%_ block header _%_}`. Cela permettra de définir le bloc title puis d’afficher sa valeur dans le bloc header, de sorte que la fenêtre et la page partagent le même titre sans l’écrire deux fois.
+Un modèle utile utilisé ici consiste à placer `{ % block title % }` à l’intérieur de `{ % block header % }`. Cela permettra de définir le bloc title puis d’afficher sa valeur dans le bloc header, de sorte que la fenêtre et la page partagent le même titre sans l’écrire deux fois.
 
 Les balises input utilisent ici l’attribut required. Cela indique au navigateur de ne pas soumettre le formulaire tant que ces champs ne sont pas remplis. Si l’utilisateur utilise un ancien navigateur qui ne prend pas en charge cet attribut, ou s’il utilise autre chose qu’un navigateur pour faire des requêtes, vous devez quand même valider les données dans la vue Flask. Il est important de toujours valider complètement les données sur le serveur, même si le client effectue également une certaine validation.
 
@@ -1277,13 +1279,13 @@ Ce modèle est identique au modèle pour s’inscrire, à l’exception du titre
 
 flaskr/templates/auth/login.html :
 ``` jinja
-{_%_ extends 'base.html' _%_}
+{ % extends 'base.html' % }
 
-{_%_ block header _%_}
-  <h1>{_%_ block title _%_}Log In{_%_ endblock _%_}</h1>
-{_%_ endblock _%_}
+{ % block header % }
+  <h1>{ % block title % }Log In{ % endblock % }</h1>
+{ % endblock % }
 
-{_%_ block content _%_}
+{ % block content % }
   <form method="post">
     <label for="username">Username</label>
     <input name="username" id="username" required>
@@ -1291,7 +1293,7 @@ flaskr/templates/auth/login.html :
     <input type="password" name="password" id="password" required>
     <input type="submit" value="Log In">
   </form>
-{_%_ endblock _%_}
+{ % endblock % }
 ```
 
 ##### Inscrire un utilisateur
@@ -1416,34 +1418,34 @@ def index():
 
 flaskr/templates/blog/index.html :
 ``` jinja
-{_%_ extends 'base.html' _%_}
+{ % extends 'base.html' % }
 
-{_%_ block header _%_}
-  <h1>{_%_ block title _%_}Posts{_%_ endblock _%_}</h1>
-  {_%_ if g.user _%_}
+{ % block header % }
+  <h1>{ % block title % }Posts{ % endblock % }</h1>
+  { % if g.user % }
     <a class="action" href="{{ url_for('blog.create') }}">New</a>
-  {_%_ endif _%_}
-{_%_ endblock _%_}
+  { % endif % }
+{ % endblock % }
 
-{_%_ block content _%_}
-  {_%_ for post in posts _%_}
+{ % block content % }
+  { % for post in posts % }
     <article class="post">
       <header>
         <div>
           <h1>{{ post['title'] }}</h1>
           <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
         </div>
-        {_%_ if g.user['id'] == post['author_id'] _%_}
+        { % if g.user['id'] == post['author_id'] % }
           <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
-        {_%_ endif _%_}
+        { % endif % }
       </header>
       <p class="body">{{ post['body'] }}</p>
     </article>
-    {_%_ if not loop.last _%_}
+    { % if not loop.last % }
       <hr>
-    {_%_ endif _%_}
-  {_%_ endfor _%_}
-{_%_ endblock _%_}
+    { % endif % }
+  { % endfor % }
+{ % endblock % }
 ```
 
 Lorsqu’un utilisateur est connecté, le bloc `header` ajoute un lien vers la vue `create`. Lorsque l’utilisateur est l’auteur d’un message, il verra un lien « Editer » vers la vue `update` de ce message. `loop.last` est une variable spéciale disponible dans [Jinja for loops](https://jinja.palletsprojects.com/templates/#for "Jinja for loops"){:target="_blank"}. Elle est utilisée pour afficher une ligne après chaque message, sauf le dernier, afin de les séparer visuellement.
@@ -1484,13 +1486,13 @@ def create():
 
 flaskr/templates/blog/create.html :
 ``` jinja
-{_%_ extends 'base.html' _%_}
+{ % extends 'base.html' % }
 
-{_%_ block header _%_}
-  <h1>{_%_ block title _%_}New Post{_%_ endblock _%_}</h1>
-{_%_ endblock _%_}
+{ % block header % }
+  <h1>{ % block title % }New Post{ % endblock % }</h1>
+{ % endblock % }
 
-{_%_ block content _%_}
+{ % block content % }
   <form method="post">
     <label for="title">Title</label>
     <input name="title" id="title" value="{{ request.form['title'] }}" required>
@@ -1498,7 +1500,7 @@ flaskr/templates/blog/create.html :
     <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
     <input type="submit" value="Save">
   </form>
-{_%_ endblock _%_}
+{ % endblock % }
 ```
 
 ##### Mise à jour
@@ -1564,13 +1566,13 @@ Les vues `create` et `update` sont très similaires. La principale différence e
 
 flaskr/templates/blog/update.html :
 ``` jinja
-{_%_ extends 'base.html' _%_}
+{ % extends 'base.html' % }
 
-{_%_ block header _%_}
-  <h1>{_%_ block title _%_}Edit "{{ post['title'] }}"{_%_ endblock _%_}</h1>
-{_%_ endblock _%_}
+{ % block header % }
+  <h1>{ % block title % }Edit "{{ post['title'] }}"{ % endblock % }</h1>
+{ % endblock % }
 
-{_%_ block content _%_}
+{ % block content % }
   <form method="post">
     <label for="title">Title</label>
     <input name="title" id="title"
@@ -1583,7 +1585,7 @@ flaskr/templates/blog/update.html :
   <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
     <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
   </form>
-{_%_ endblock _%_}
+{ % endblock % }
 ```
 
 Ce modèle a deux formes. Le premier affiche les données modifiées sur la page actuelle (`/<id>/update`). L’autre formulaire ne contient qu’un bouton et spécifie un attribut `action` qui affiche la vue de suppression à la place. Le bouton utilise du JavaScript pour afficher une boîte de dialogue de confirmation avant l’envoi.

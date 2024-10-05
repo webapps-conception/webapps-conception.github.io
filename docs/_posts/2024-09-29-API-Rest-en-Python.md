@@ -1,7 +1,9 @@
 layout: post
+robots: index,follow
+published: true
 title: "Comment développer une API Rest en Python ?"
 date: 2024-09-28 12:30:00 +0002
-categories: Python Flask
+tags: [Python, Flask]
 
 # Comment développer une API Rest en Python ?
 ## Architecture REST
