@@ -1198,7 +1198,7 @@ Les modèles sont des fichiers qui contiennent des données statiques ainsi que 
 
 Dans votre application, vous utiliserez des modèles pour rendre le HTML qui s’affichera dans le navigateur de l’utilisateur. Dans Flask, Jinja est configuré pour auto-échapper toutes les données qui sont rendues dans les modèles HTML. Cela signifie que le rendu de la saisie de l’utilisateur est sûr ; tous les caractères qu’il a entrés et qui pourraient perturber le HTML, tels que `<` et `>`, seront échappés avec des valeurs sûres qui auront le même aspect dans le navigateur mais ne provoqueront pas d’effets indésirables.
 
-Jinja se présente et se comporte essentiellement comme Python. Des délimiteurs spéciaux sont utilisés pour distinguer la syntaxe Jinja des données statiques du modèle. Tout ce qui se trouve entre `{{` et `}}` est une expression qui sera affichée dans le document final. {% et %} dénote une instruction de flux de contrôle comme if et for. Contrairement à Python, les blocs sont désignés par des balises de début et de fin plutôt que par une indentation, car le texte statique à l’intérieur d’un bloc peut modifier l’indentation.
+Jinja se présente et se comporte essentiellement comme Python. Des délimiteurs spéciaux sont utilisés pour distinguer la syntaxe Jinja des données statiques du modèle. Tout ce qui se trouve entre `{{` et `}}` est une expression qui sera affichée dans le document final. `{\%` et `%\}` dénote une instruction de flux de contrôle comme if et for. Contrairement à Python, les blocs sont désignés par des balises de début et de fin plutôt que par une indentation, car le texte statique à l’intérieur d’un bloc peut modifier l’indentation.
 
 ##### La disposition de la base
 
