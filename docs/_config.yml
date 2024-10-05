@@ -1,7 +1,9 @@
 theme: jekyll-theme-leap-day
 title: Blog Web Apps Conception
 name: Rudy TUANI
+email: rudy.t54230@gmail.com
 description: Blog officiel du projet Web Apps Conception
+baseurl: "/"
 url: https://webapps-conception.github.io
 repository: webapps-conception/webapps-conception.github.io
 show_downloads: false
