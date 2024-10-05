@@ -3,7 +3,7 @@ robots: index,follow
 published: true
 title: "Développer une application Flask en Python"
 date: 2024-10-04 21:30:00 +0002
-tags: [Python, Flask]
+tags: Python Flask
 
 # Développer une application Flask en Python
 
@@ -650,7 +650,7 @@ Prêt à déployer votre nouvelle application Flask ? Voir [Deployment Options](
 
 Ce tutoriel vous guidera dans la création d’une application de blog de base appelée Flaskr. Les utilisateurs pourront s’inscrire, se connecter, créer des messages, et modifier ou supprimer leurs propres messages. Vous serez en mesure d’emballer et d’installer l’application sur d’autres ordinateurs.
 
-![capture d'écran de la page d'index](/assets/images/flaskr_index.png)
+![capture d'écran de la page d'index](/assets/images/flaskr_index.webp)
 
 Il est supposé que vous êtes déjà familier avec Python. Le [tutoriel officiel](https://docs.python.org/3/tutorial/) dans les docs Python est un excellent moyen d’apprendre ou de réviser d’abord.
 
@@ -2212,16 +2212,15 @@ Vous avez appris un certain nombre de concepts de Flask et de Python tout au lon
 Flask est bien plus que ce que vous avez vu jusqu’à présent. Néanmoins, vous êtes maintenant équipé pour commencer à développer vos propres applications web. Consultez [Bien débuter](#Une application minimale) pour avoir un aperçu de ce que Flask peut faire, puis plongez dans la documentation pour continuer à apprendre. Flask utilise [Jinja](https://palletsprojects.com/p/jinja/ "Jinja"){:target="_blank"}, [Click](https://palletsprojects.com/p/click/ "Click"){:target="_blank"}, [Werkzeug](https://palletsprojects.com/p/werkzeug/ "Werkzeug"){:target="_blank"}, et [ItsDangerous](https://palletsprojects.com/p/itsdangerous/ "ItsDangerous"){:target="_blank"} dans les coulisses, et ils ont tous leur propre documentation aussi. Vous serez également intéressé par les [Extensions](https://flask-fr.readthedocs.io/extensions/ "Extensions"){:target="_blank"} qui rendent des tâches comme le travail avec la base de données ou la validation des données de formulaire plus faciles et plus puissantes.
 
 Si vous souhaitez continuer à développer votre projet Flaskr, voici quelques idées sur ce que vous pouvez essayer ensuite :
-
-    - Une vue détaillée pour afficher un seul message. Cliquez sur le titre d’un message pour accéder à sa page.
-    - Haut-vote / bas-vote un message.
-    - Commentaires.
-    - Tags. Si vous cliquez sur un tag, vous verrez tous les messages correspondant à ce tag.
-    - Une barre de recherche qui filtre la page d’index par nom.
-    - Affichage par page. N’affichez que 5 messages par page.
-    - Téléchargez une image pour accompagner un article.
-    - Formatez vos articles en utilisant le format Markdown.
-    - Un flux RSS des nouveaux messages.
+- Une vue détaillée pour afficher un seul message. Cliquez sur le titre d’un message pour accéder à sa page.
+- Haut-vote / bas-vote un message.
+- Commentaires.
+- Tags. Si vous cliquez sur un tag, vous verrez tous les messages correspondant à ce tag.
+- Une barre de recherche qui filtre la page d’index par nom.
+- Affichage par page. N’affichez que 5 messages par page.
+- Téléchargez une image pour accompagner un article.
+- Formatez vos articles en utilisant le format Markdown.
+- Un flux RSS des nouveaux messages.
 
 Amusez-vous et faites des applications géniales !
 
