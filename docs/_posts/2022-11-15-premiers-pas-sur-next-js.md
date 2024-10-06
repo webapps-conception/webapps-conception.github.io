@@ -85,6 +85,6 @@ import 'highlight.js/styles/stackoverflow-dark.css'
 * <https://jasonvan.ca/posts/compile-markdown-to-html-using-node-js-with-syntax-highlighting>{:target="_blank"}
 
 ## Note
-Ce blog utilise le framework [Tailwind CSS](https://tailwindcss.com/){:target="_blank"}, et peut être déployé facilement sur le cloud [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example){:target="_blank"} ([Documentation](https://nextjs.org/docs/deployment){:target="_blank"}.
+Ce blog utilise le framework [Tailwind CSS](https://tailwindcss.com/){:target="_blank"}, et peut être déployé facilement sur le cloud [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example){:target="_blank"} ([Documentation](https://nextjs.org/docs/deployment){:target="_blank"}).
 
 * <https://github.com/vercel/next.js/tree/canary/examples/blog-starter>{:target="_blank"}
