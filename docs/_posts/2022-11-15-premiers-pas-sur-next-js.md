@@ -4,7 +4,7 @@ date: '2022-11-15T17:00:00.000Z'
 tags: react next.js
 
 # Modèles de sites web
-* <https://vercel.com/new/templates>
+* <https://vercel.com/new/templates>{:target="_blank"}
 
 # Créer un blog
 ## Introduction
@@ -18,7 +18,7 @@ Les articles de blog sont stockés dans /_posts en tant que fichiers Markdown av
 Pour créer les articles de blog, nous utilisons [remark](https://github.com/remarkjs/remark){:target="_blank"} et [remark-html](https://github.com/remarkjs/remark-html){:target="_blank"} pour convertir les fichiers Markdown en une chaîne HTML, puis l'envoyons comme accessoire à la page. Les métadonnées de chaque publication sont gérées par [gray-matter](https://github.com/jonschlinkert/gray-matter){:target="_blank"} et également envoyées en accessoires à la page.
 
 ## Démo
-* <https://next-blog-starter.vercel.app/>
+* <https://next-blog-starter.vercel.app/>{:target="_blank"}
 
 ## Génération d'un blog Next.js
 
