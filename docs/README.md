@@ -13,3 +13,7 @@ Comme ma passion pour le développement est plus forte que jamais, j'ai décidé
 
   - Post [Développer une application Flask en Python](/2024/10/04/Application-Flask-en-Python.html)
   - Post [Comment développer une API Rest en Python ?](/2024/09/29/API-Rest-en-Python.html)
+  - Post [Logiciels libres et open source](/2023/05/10/logiciels-libres.html)
+  - Post [Premiers pas sur Next.js](/2022/11/15/premiers-pas-sur-next-js.html)
+  - Post [Créer un site web avec Gatsby](/2022/11/15/creer-website-gatsby.html)
+  - Post [React Bootstrap](/2022/11/15/react-bootstrap.html)

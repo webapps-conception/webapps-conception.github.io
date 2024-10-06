@@ -1,6 +1,4 @@
 layout: post
-robots: index,follow
-published: true
 title: "Développer une application Flask en Python"
 date: 2024-10-04 21:30:00 +0002
 tags: python flask
