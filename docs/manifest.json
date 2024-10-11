@@ -1,0 +1,46 @@
+{
+  "name": "Blog Web Apps Conception",
+  "short_name": "Blog WAC",
+  "description": "Ancien développeur Full Stack React, secteur Toul - Nancy.",
+  "author": "Rudy TUANI",
+  "orientation": "any",
+  "display": "standalone",
+  "lang": "fr-fr",
+  "start_url": "/",
+  "dir": "ltr",
+  "theme_color": "#FFFFFF",
+  "background_color": "#FFFFFF",
+  "icons": [
+    { "src": "/assets/pwa/favicon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    { "src": "/assets/pwa/favicon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    { "src": "/assets/pwa/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    { "src": "/assets/pwa/favicon-192x192-maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    { "src": "/assets/pwa/favicon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    { "src": "/assets/pwa/favicon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    { "src": "/assets/pwa/favicon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "prefer_related_applications": false
+}
