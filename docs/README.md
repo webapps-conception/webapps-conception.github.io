@@ -11,7 +11,7 @@ Comme ma passion pour le développement est plus forte que jamais, j'ai décidé
 
 # Articles du blog
 
-  - Post [Amélioration des fonctionnalités du package officiel docsify-cli](/2024/10/18/Docsify.html)
+  - Post [Amélioration des fonctionnalités du package officiel docsify-cli](/2024/10/18/Docsify-cli.html)
   - Post [Développer une application Flask en Python](/2024/10/04/Application-Flask-en-Python.html)
   - Post [Comment développer une API Rest en Python ?](/2024/09/29/API-Rest-en-Python.html)
   - Post [Logiciels libres et open source](/2023/05/10/logiciels-libres.html)
