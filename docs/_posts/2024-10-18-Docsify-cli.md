@@ -6,7 +6,7 @@ tags: node
 
 # Amélioration des fonctionnalités du package officiel docsify-cli
 
-Afin de répondre à un besoin en sécurité au niveau de l'interface réseau du port d'écoute, et améliorer la traçabilité des connexions sur docsify-cli, ce nouveau dépôt a été créé sur github : [webapps-conception/docsify-cli](https://github.com/webapps-conception/docsify-cli).
+Afin de répondre à un besoin en sécurité au niveau de l'interface réseau du port d'écoute, et améliorer la traçabilité des connexions sur docsify-cli, ce nouveau dépôt a été créé sur github : [webapps-conception/docsify-cli](https://github.com/webapps-conception/docsify-cli){:target="_blank"}.
 
 
 ## Screencast
@@ -18,7 +18,7 @@ Afin de répondre à un besoin en sécurité au niveau de l'interface réseau du
 
 ## Installation
 
-Un package est à disponible sur NPM Js sous [@webappsconception/docsify-cli](https://www.npmjs.com/package/@webappsconception/docsify-cli).
+Un package est à disponible sur NPM Js sous [@webappsconception/docsify-cli](https://www.npmjs.com/package/@webappsconception/docsify-cli){:target="_blank"}.
 
 Installez `docsify-cli` via `npm` ou `yarn` globalement.
 
@@ -41,7 +41,7 @@ sudo yarn global add @webappsconception/docsify-cli
 
 ## Usage
 
-Les améliorations apportés concerne uniquement la partie `docsify serve`.
+Les améliorations apportées concernent uniquement la partie `docsify serve`.
 
 Exécutez un serveur sur `localhost` avec livereload.
 
@@ -71,13 +71,13 @@ docsify serve [path] [--open false] [--ip 127.0.0.1] [--port 3000] [--log logfil
   - Type: number
   - Description: Fichier journal.
 
-Les options **`--ip`** et **`--log`** ont été rajoutées pour sécuriser l'interface réseau avec le paramétrage de l'adresse ip, et le fichier journal pour visualiser les connexions sur l'application `docsify-cli`.
+Les options **`--ip`** et **`--log`** ont été ajoutées pour sécuriser l'interface réseau avec le paramétrage de l'adresse ip, et le fichier journal pour visualiser les connexions sur l'application `docsify-cli`.
 
 Avec cette version de `docsify-cli`, si l'adresse ip `127.0.0.1` est utilisée par défaut, le port ne sera pas ouvert sur votre interface LAN et/ou wifi, ce qui sécurise davantages vos données par rapport à la version du dépôt officielle de `docsify-cli`.
 
-Cette amélioration méritait bien un nouveau dépôt github !
+Ces améliorations méritaient bien un nouveau dépôt github !
 
 ## Exemple de site docsify
 
-Vous trouverez sur mon dépôt github un exemple d'utilisation de `docsify` : [webapps-conception/docsify-exemple](https://github.com/webapps-conception/docsify-exemple).
+Vous trouverez sur mon dépôt github un exemple d'utilisation de `docsify` : [webapps-conception/docsify-exemple](https://github.com/webapps-conception/docsify-exemple){:target="_blank"}.
 
