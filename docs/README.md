@@ -11,7 +11,7 @@ Comme ma passion pour le développement est plus forte que jamais, j'ai décidé
 
 # Articles du blog
 
-  - Post [Développer en Liquid Js](/2024/10/20/LiquidJs.html)
+  - Post [Développer en Liquid Js](/2024/10/19/LiquidJs.html)
   - Post [Développer un Back End en Node.js](/2024/10/19/NodeJs.html)
   - Post [Développer un Front End en React.js](/2024/10/19/ReactJs.html)
   - Post [Amélioration des fonctionnalités du package officiel docsify-cli](/2024/10/18/Docsify-cli.html)
