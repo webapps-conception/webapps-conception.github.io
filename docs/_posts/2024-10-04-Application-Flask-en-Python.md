@@ -293,11 +293,11 @@ Voici un exemple de modèle :
 ``` jinja
 <!doctype html>
 <title>Hello from Flask</title>
-{ % if name % }
-  <h1>Hello {{ name }}!</h1>
-{ % else % }
+{% raw %}{%{% endraw %} if name {% raw %}%}{% endraw %}
+  <h1>Hello {% raw %}{{{% endraw %} name {% raw %}}}{% endraw %}!</h1>
+{% raw %}{%{% endraw %} else {% raw %}%}{% endraw %}
   <h1>Hello, World!</h1>
-{ % endif % }
+{% raw %}{%{% endraw %} endif {% raw %}%}{% endraw %}
 ```
 
 À l’intérieur des modèles, vous avez également accès aux objets `config`, `request`, `session` et `g` [^1] ainsi qu’aux fonctions `url_for()` et `get_flashed_messages()`.
@@ -1198,7 +1198,7 @@ Les modèles sont des fichiers qui contiennent des données statiques ainsi que 
 
 Dans votre application, vous utiliserez des modèles pour rendre le HTML qui s’affichera dans le navigateur de l’utilisateur. Dans Flask, Jinja est configuré pour auto-échapper toutes les données qui sont rendues dans les modèles HTML. Cela signifie que le rendu de la saisie de l’utilisateur est sûr ; tous les caractères qu’il a entrés et qui pourraient perturber le HTML, tels que `<` et `>`, seront échappés avec des valeurs sûres qui auront le même aspect dans le navigateur mais ne provoqueront pas d’effets indésirables.
 
-Jinja se présente et se comporte essentiellement comme Python. Des délimiteurs spéciaux sont utilisés pour distinguer la syntaxe Jinja des données statiques du modèle. Tout ce qui se trouve entre `{{` et `}}` est une expression qui sera affichée dans le document final. `{ %` et `% }` dénote une instruction de flux de contrôle comme if et for. Contrairement à Python, les blocs sont désignés par des balises de début et de fin plutôt que par une indentation, car le texte statique à l’intérieur d’un bloc peut modifier l’indentation.
+Jinja se présente et se comporte essentiellement comme Python. Des délimiteurs spéciaux sont utilisés pour distinguer la syntaxe Jinja des données statiques du modèle. Tout ce qui se trouve entre `{% raw %}{{{% endraw %}` et `{% raw %}}}{% endraw %}` est une expression qui sera affichée dans le document final. `{% raw %}{%{% endraw %}` et `{% raw %}%}{% endraw %}` dénote une instruction de flux de contrôle comme if et for. Contrairement à Python, les blocs sont désignés par des balises de début et de fin plutôt que par une indentation, car le texte statique à l’intérieur d’un bloc peut modifier l’indentation.
 
 ##### La disposition de la base
 
@@ -1207,28 +1207,28 @@ Chaque page de l’application aura la même mise en page de base autour d’un 
 flaskr/templates/base.html :
 ``` jinja
 <!doctype html>
-<title>{ % block title % }{ % endblock % } - Flaskr</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %} - Flaskr</title>
+<link rel="stylesheet" href="{% raw %}{{{% endraw %} url_for('static', filename='style.css') {% raw %}}}{% endraw %}">
 <nav>
   <h1>Flaskr</h1>
   <ul>
-    { % if g.user % }
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    { % else % }
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    { % endif % }
+    {% raw %}{%{% endraw %} if g.user {% raw %}%}{% endraw %}
+      <li><span>{% raw %}{{{% endraw %} g.user['username'] {% raw %}}}{% endraw %}</span>
+      <li><a href="{% raw %}{{{% endraw %} url_for('auth.logout') {% raw %}}}{% endraw %}">Log Out</a>
+    {% raw %}{%{% endraw %} else {% raw %}%}{% endraw %}
+      <li><a href="{% raw %}{{{% endraw %} url_for('auth.register') {% raw %}}}{% endraw %}">Register</a>
+      <li><a href="{% raw %}{{{% endraw %} url_for('auth.login') {% raw %}}}{% endraw %}">Log In</a>
+    {% raw %}{%{% endraw %} endif {% raw %}%}{% endraw %}
   </ul>
 </nav>
 <section class="content">
   <header>
-    { % block header % }{ % endblock % }
+    {% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
   </header>
-  { % for message in get_flashed_messages() % }
-    <div class="flash">{{ message }}</div>
-  { % endfor % }
-  { % block content % }{ % endblock % }
+  {% raw %}{%{% endraw %} for message in get_flashed_messages() {% raw %}%}{% endraw %}
+    <div class="flash">{% raw %}{{{% endraw %} message {% raw %}}}{% endraw %}</div>
+  {% raw %}{%{% endraw %} endfor {% raw %}%}{% endraw %}
+  {% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 </section>
 ```
 
@@ -1238,9 +1238,9 @@ Après le titre de la page, et avant le contenu, le modèle boucle sur chaque me
 
 Il y a trois blocs définis ici qui seront remplacés dans les autres modèles :
 
-1. `{ % block title % }` modifiera le titre affiché dans l’onglet et le titre de la fenêtre du navigateur.
-2. `{ % block header % }` est similaire à title mais changera le titre affiché sur la page.
-3. `{ % block content % }` est l’endroit où va le contenu de chaque page, comme le formulaire de connexion ou un article de blog.
+1. `{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}` modifiera le titre affiché dans l’onglet et le titre de la fenêtre du navigateur.
+2. `{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}` est similaire à title mais changera le titre affiché sur la page.
+3. `{% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}` est l’endroit où va le contenu de chaque page, comme le formulaire de connexion ou un article de blog.
 
 Le modèle de base se trouve directement dans le répertoire `templates`. Pour garder les autres organisés, les modèles pour un blueprint seront placés dans un répertoire avec le même nom que le *blueprint*.
 
@@ -1248,13 +1248,13 @@ Le modèle de base se trouve directement dans le répertoire `templates`. Pour g
 
 flaskr/templates/auth/register.html :
 ``` jinja
-{ % extends 'base.html' % }
+{% raw %}{%{% endraw %} extends 'base.html' {% raw %}%}{% endraw %}
 
-{ % block header % }
-  <h1>{ % block title % }Register{ % endblock % }</h1>
-{ % endblock % }
+{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}
+  <h1>{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}Register{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}</h1>
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 
-{ % block content % }
+{% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}
   <form method="post">
     <label for="username">Username</label>
     <input name="username" id="username" required>
@@ -1262,12 +1262,12 @@ flaskr/templates/auth/register.html :
     <input type="password" name="password" id="password" required>
     <input type="submit" value="Register">
   </form>
-{ % endblock % }
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 ```
 
-`{ % extends 'base.html' % }` indique à Jinja que ce modèle doit remplacer les blocs du modèle de base. Tout le contenu rendu doit apparaître à l’intérieur des balises `{ % block % }` qui remplacent les blocs du modèle de base.
+`{% raw %}{%{% endraw %} extends 'base.html' {% raw %}%}{% endraw %}` indique à Jinja que ce modèle doit remplacer les blocs du modèle de base. Tout le contenu rendu doit apparaître à l’intérieur des balises `{% raw %}{%{% endraw %} block {% raw %}%}{% endraw %}` qui remplacent les blocs du modèle de base.
 
-Un modèle utile utilisé ici consiste à placer `{ % block title % }` à l’intérieur de `{ % block header % }`. Cela permettra de définir le bloc title puis d’afficher sa valeur dans le bloc header, de sorte que la fenêtre et la page partagent le même titre sans l’écrire deux fois.
+Un modèle utile utilisé ici consiste à placer `{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}` à l’intérieur de `{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}`. Cela permettra de définir le bloc title puis d’afficher sa valeur dans le bloc header, de sorte que la fenêtre et la page partagent le même titre sans l’écrire deux fois.
 
 Les balises input utilisent ici l’attribut required. Cela indique au navigateur de ne pas soumettre le formulaire tant que ces champs ne sont pas remplis. Si l’utilisateur utilise un ancien navigateur qui ne prend pas en charge cet attribut, ou s’il utilise autre chose qu’un navigateur pour faire des requêtes, vous devez quand même valider les données dans la vue Flask. Il est important de toujours valider complètement les données sur le serveur, même si le client effectue également une certaine validation.
 
@@ -1277,13 +1277,13 @@ Ce modèle est identique au modèle pour s’inscrire, à l’exception du titre
 
 flaskr/templates/auth/login.html :
 ``` jinja
-{ % extends 'base.html' % }
+{% raw %}{%{% endraw %} extends 'base.html' {% raw %}%}{% endraw %}
 
-{ % block header % }
-  <h1>{ % block title % }Log In{ % endblock % }</h1>
-{ % endblock % }
+{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}
+  <h1>{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}Log In{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}</h1>
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 
-{ % block content % }
+{% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}
   <form method="post">
     <label for="username">Username</label>
     <input name="username" id="username" required>
@@ -1291,7 +1291,7 @@ flaskr/templates/auth/login.html :
     <input type="password" name="password" id="password" required>
     <input type="submit" value="Log In">
   </form>
-{ % endblock % }
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 ```
 
 ##### Inscrire un utilisateur
@@ -1309,7 +1309,7 @@ Les vues et les modèles d’authentification fonctionnent, mais ils sont très 
 Flask ajoute automatiquement une vue static qui prend un chemin relatif au répertoire `flaskr/static` et le sert. Le modèle base.html a déjà un lien vers le fichier `style.css` :
 
 ``` jinja
-{{ url_for('static', filename='style.css') }}
+{% raw %}{{{% endraw %} url_for('static', filename='style.css') {% raw %}}}{% endraw %}
 ```
 
 Outre les CSS, d’autres types de fichiers statiques peuvent être des fichiers contenant des fonctions JavaScript, ou une image de logo. Ils sont tous placés dans le répertoire flaskr/static et référencés avec `url_for('static', filename='...')`.
@@ -1416,34 +1416,34 @@ def index():
 
 flaskr/templates/blog/index.html :
 ``` jinja
-{ % extends 'base.html' % }
+{% raw %}{%{% endraw %} extends 'base.html' {% raw %}%}{% endraw %}
 
-{ % block header % }
-  <h1>{ % block title % }Posts{ % endblock % }</h1>
-  { % if g.user % }
-    <a class="action" href="{{ url_for('blog.create') }}">New</a>
-  { % endif % }
-{ % endblock % }
+{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}
+  <h1>{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}Posts{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}</h1>
+  {% raw %}{%{% endraw %} if g.user {% raw %}%}{% endraw %}
+    <a class="action" href="{% raw %}{{{% endraw %} url_for('blog.create') {% raw %}}}{% endraw %}">New</a>
+  {% raw %}{%{% endraw %} endif {% raw %}%}{% endraw %}
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 
-{ % block content % }
-  { % for post in posts % }
+{% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}
+  {% raw %}{%{% endraw %} for post in posts {% raw %}%}{% endraw %}
     <article class="post">
       <header>
         <div>
-          <h1>{{ post['title'] }}</h1>
-          <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}</div>
+          <h1>{% raw %}{{{% endraw %} post['title'] {% raw %}}}{% endraw %}</h1>
+          <div class="about">by {% raw %}{{{% endraw %} post['username'] {% raw %}}}{% endraw %} on {% raw %}{{{% endraw %} post['created'].strftime('%Y-%m-%d') {% raw %}}}{% endraw %}</div>
         </div>
-        { % if g.user['id'] == post['author_id'] % }
-          <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
-        { % endif % }
+        {% raw %}{%{% endraw %} if g.user['id'] == post['author_id'] {% raw %}%}{% endraw %}
+          <a class="action" href="{% raw %}{{{% endraw %} url_for('blog.update', id=post['id']) {% raw %}}}{% endraw %}">Edit</a>
+        {% raw %}{%{% endraw %} endif {% raw %}%}{% endraw %}
       </header>
-      <p class="body">{{ post['body'] }}</p>
+      <p class="body">{% raw %}{{{% endraw %} post['body'] {% raw %}}}{% endraw %}</p>
     </article>
-    { % if not loop.last % }
+    {% raw %}{%{% endraw %} if not loop.last {% raw %}%}{% endraw %}
       <hr>
-    { % endif % }
-  { % endfor % }
-{ % endblock % }
+    {% raw %}{%{% endraw %} endif {% raw %}%}{% endraw %}
+  {% raw %}{%{% endraw %} endfor {% raw %}%}{% endraw %}
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 ```
 
 Lorsqu’un utilisateur est connecté, le bloc `header` ajoute un lien vers la vue `create`. Lorsque l’utilisateur est l’auteur d’un message, il verra un lien « Editer » vers la vue `update` de ce message. `loop.last` est une variable spéciale disponible dans [Jinja for loops](https://jinja.palletsprojects.com/templates/#for "Jinja for loops"){:target="_blank"}. Elle est utilisée pour afficher une ligne après chaque message, sauf le dernier, afin de les séparer visuellement.
@@ -1484,21 +1484,21 @@ def create():
 
 flaskr/templates/blog/create.html :
 ``` jinja
-{ % extends 'base.html' % }
+{% raw %}{%{% endraw %} extends 'base.html' {% raw %}%}{% endraw %}
 
-{ % block header % }
-  <h1>{ % block title % }New Post{ % endblock % }</h1>
-{ % endblock % }
+{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}
+  <h1>{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}New Post{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}</h1>
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 
-{ % block content % }
+{% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}
   <form method="post">
     <label for="title">Title</label>
-    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    <input name="title" id="title" value="{% raw %}{{{% endraw %} request.form['title'] {% raw %}}}{% endraw %}" required>
     <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+    <textarea name="body" id="body">{% raw %}{{{% endraw %} request.form['body'] {% raw %}}}{% endraw %}</textarea>
     <input type="submit" value="Save">
   </form>
-{ % endblock % }
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 ```
 
 ##### Mise à jour
@@ -1564,31 +1564,31 @@ Les vues `create` et `update` sont très similaires. La principale différence e
 
 flaskr/templates/blog/update.html :
 ``` jinja
-{ % extends 'base.html' % }
+{% raw %}{%{% endraw %} extends 'base.html' {% raw %}%}{% endraw %}
 
-{ % block header % }
-  <h1>{ % block title % }Edit "{{ post['title'] }}"{ % endblock % }</h1>
-{ % endblock % }
+{% raw %}{%{% endraw %} block header {% raw %}%}{% endraw %}
+  <h1>{% raw %}{%{% endraw %} block title {% raw %}%}{% endraw %}Edit "{% raw %}{{{% endraw %} post['title'] {% raw %}}}{% endraw %}"{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}</h1>
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 
-{ % block content % }
+{% raw %}{%{% endraw %} block content {% raw %}%}{% endraw %}
   <form method="post">
     <label for="title">Title</label>
     <input name="title" id="title"
-      value="{{ request.form['title'] or post['title'] }}" required>
+      value="{% raw %}{{{% endraw %} request.form['title'] or post['title'] {% raw %}}}{% endraw %}" required>
     <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+    <textarea name="body" id="body">{% raw %}{{{% endraw %} request.form['body'] or post['body'] {% raw %}}}{% endraw %}</textarea>
     <input type="submit" value="Save">
   </form>
   <hr>
-  <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+  <form action="{% raw %}{{{% endraw %} url_for('blog.delete', id=post['id']) {% raw %}}}{% endraw %}" method="post">
     <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
   </form>
-{ % endblock % }
+{% raw %}{%{% endraw %} endblock {% raw %}%}{% endraw %}
 ```
 
 Ce modèle a deux formes. Le premier affiche les données modifiées sur la page actuelle (`/<id>/update`). L’autre formulaire ne contient qu’un bouton et spécifie un attribut `action` qui affiche la vue de suppression à la place. Le bouton utilise du JavaScript pour afficher une boîte de dialogue de confirmation avant l’envoi.
 
-Le motif `{{ request.form['title'] or post['title'] }}` est utilisé pour choisir les données qui apparaissent dans le formulaire. Lorsque le formulaire n’a pas été soumis, les données originales post apparaissent, mais si des données de formulaire invalides ont été postées, vous voulez les afficher pour que l’utilisateur puisse corriger l’erreur, donc `request.form` est utilisé à la place. [request](#Accès aux données de la requête) est une autre variable qui est automatiquement disponible dans les modèles.
+Le motif `{% raw %}{{{% endraw %} request.form['title'] or post['title'] {% raw %}}}{% endraw %}` est utilisé pour choisir les données qui apparaissent dans le formulaire. Lorsque le formulaire n’a pas été soumis, les données originales post apparaissent, mais si des données de formulaire invalides ont été postées, vous voulez les afficher pour que l’utilisateur puisse corriger l’erreur, donc `request.form` est utilisé à la place. [request](#Accès aux données de la requête) est une autre variable qui est automatiquement disponible dans les modèles.
 
 ##### Supprimer
 
